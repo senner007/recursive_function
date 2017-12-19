@@ -3,17 +3,18 @@ function recursive(y) {
 
   var functionCalls
     function find(x, a) {
-    count++;
+    count++; // count counts the total recursive calls made
    //console.log(x)
     if (count > 3000) {return 'count: ' + count;}
     if (x == y) { a = a + x; a = a.split(','); return {n: x, stepsToComplete: a.length, totalCalls: count, sequence: a}; }
     if (x > y) { return false;}
     else {
-       console.log(x)
+      console.log(x) // this does not show the final sequence
+      var param2 = a + x + ',';
       return (
-        find(x +5, a + x + ',') ||
-        find(x +4, a + x + ',') ||
-        find(x * 3, a + x + ',')
+        find(x +5, param2) ||
+        find(x +4, param2) ||
+        find(x * 3, param2)
       );
     }
 
